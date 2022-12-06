@@ -53,10 +53,11 @@
                                         <rect key="frame" x="77" y="190" width="106" height="45"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="dealbutton"/>
+                                        <connections>
+                                            <action selector="DealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9lk-Ch-vUH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <variation key="heightClass=compact-widthClass=compact"/>
-                                <variation key="heightClass=compact-widthClass=regular"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Nc-sM-wER" userLabel="Player Score Stack View">
                                 <rect key="frame" x="20" y="765.5" width="47" height="76.5"/>
@@ -148,6 +149,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="LeftCardImageView" destination="ihC-nA-b2d" id="IDf-bw-v24"/>
+                        <outlet property="LeftScoreLabel" destination="XjW-ma-coW" id="rRO-cf-Zhs"/>
+                        <outlet property="RightCardImageView" destination="VOW-Lc-Pbr" id="AYb-RO-bkV"/>
+                        <outlet property="RightScoreLabel" destination="xyC-xL-DfD" id="86n-KU-JsK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
