@@ -40,15 +40,14 @@ class Card{
 }
 
 class Score{
-    var initialScore:Int = 1000
-    func caculateScore(randCard:[String])->Int{
+    var currentScore:Int = 1000
+    func caculateScore(randCard:[String]){
         if randCard.dropFirst().allSatisfy({ $0 == randCard.first }){
-            initialScore += 10
+            currentScore += 10
         }
         else{
-            initialScore -= 5
+            currentScore -= 5
         }
-        return initialScore
         }
     
 }

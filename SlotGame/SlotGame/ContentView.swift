@@ -12,14 +12,14 @@ struct ContentView: View {
         var cardsImages = Array(repeating: "star", count: 3)
         var score = Score()
         var card = Card()
-        var scoreView = score.initialScore
+        
         
         ZStack{
             VStack{
                     Spacer()
                     Text("SwiftUI Slots").font(.largeTitle)
                     Spacer()
-                    Text("Credits: .\(scoreView)")
+                Text("Credits: \(score.currentScore)")
                     Spacer()
                     HStack{
                         Spacer()
@@ -34,8 +34,8 @@ struct ContentView: View {
                     Button("Spin", action: {
                         cardsImages = card.randomCard()
                         print(cardsImages)
-                        scoreView = score.caculateScore(randCard:cardsImages)
-                        print(scoreView)
+                        score.caculateScore(randCard:cardsImages)
+                        print(score.currentScore)
                     })
                     Spacer()
                 }
