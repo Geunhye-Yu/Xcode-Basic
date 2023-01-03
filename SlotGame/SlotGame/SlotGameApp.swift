@@ -16,39 +16,33 @@ struct SlotGameApp: App {
     }
 }
 
-class Card{
-    
-    let numOfCard : Int = 3
-    var card : [String]
-    var slottedCard : [String]
-    var cardName : String
-    
-    init() {
-        self.card = ["apple", "cherry", "star"]
-        self.slottedCard = [String]()
-        self.cardName = ""
-    }
+struct Card{
     
     func randomCard()->[String]{
-        slottedCard = [String]()
-        for _ in 0...numOfCard-1 {
-            cardName = card[Int.random(in: 0...numOfCard-1)]
+        let initialCard : [String] = ["apple","cherry","star"]
+        var slottedCard = [String]()
+        var cardName : String
+        
+        for _ in 0...initialCard.count-1 {
+            cardName = initialCard[Int.random(in: 0...initialCard.count-1)]
             slottedCard.append(cardName)
         }
         return slottedCard
     }
 }
 
-class Score{
-    var currentScore:Int = 1000
-    func caculateScore(randCard:[String]){
+struct Score{
+    
+    func caculateScore(randCard:[String], credit:Int)->Int{
+        var result : Int
         if randCard.dropFirst().allSatisfy({ $0 == randCard.first }){
-            currentScore += 10
+            result = credit + 10
         }
         else{
-            currentScore -= 5
+            result = credit - 5
         }
+        return result
         }
-    
+
 }
 

@@ -8,39 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var cards = Card()
+    @State var score = Score()
+    @State var credit = 1000
+    @State var slottedCard : [String] = ["apple","cherry","star"]
+    
     var body: some View {
-        var cardsImages = Array(repeating: "star", count: 3)
-        var score = Score()
-        var card = Card()
-        
-        
-        ZStack{
-            VStack{
+
+        VStack{
+                Spacer()
+                Text("SwiftUI Slots").font(.largeTitle)
+                Spacer()
+            Text("Credits: \(credit)")
+                
+                Spacer()
+                HStack{
                     Spacer()
-                    Text("SwiftUI Slots").font(.largeTitle)
+                    Image(slottedCard[0]).resizable().aspectRatio(contentMode: .fit)
                     Spacer()
-                Text("Credits: \(score.currentScore)")
+                    Image(slottedCard[1]).resizable().aspectRatio(contentMode: .fit)
                     Spacer()
-                    HStack{
-                        Spacer()
-                        Image(cardsImages[0]).resizable().aspectRatio(contentMode: .fit)
-                        Spacer()
-                        Image(cardsImages[1]).resizable().aspectRatio(contentMode: .fit)
-                        Spacer()
-                        Image(cardsImages[2]).resizable().aspectRatio(contentMode: .fit)
-                        Spacer()
-                    }
+                    Image(slottedCard[2]).resizable().aspectRatio(contentMode: .fit)
                     Spacer()
-                    Button("Spin", action: {
-                        cardsImages = card.randomCard()
-                        print(cardsImages)
-                        score.caculateScore(randCard:cardsImages)
-                        print(score.currentScore)
-                    })
-                    Spacer()
+
                 }
-        }
+                Spacer()
+                Button("Spin") {
+                    slottedCard = cards.randomCard()
+                    print(slottedCard)
+                    credit = score.caculateScore(randCard:slottedCard, credit:credit)
+                    print(credit)
+                }
+                Spacer()
+            }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
