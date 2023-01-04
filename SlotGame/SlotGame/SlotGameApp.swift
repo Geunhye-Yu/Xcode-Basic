@@ -17,12 +17,12 @@ struct SlotGameApp: App {
 }
 
 struct Card{
+    let initialCard : [String] = ["apple","cherry","star"]
     
     func randomCard()->[String]{
-        let initialCard : [String] = ["apple","cherry","star"]
+        
         var slottedCard = [String]()
         var cardName : String
-        
         for _ in 0...initialCard.count-1 {
             cardName = initialCard[Int.random(in: 0...initialCard.count-1)]
             slottedCard.append(cardName)
