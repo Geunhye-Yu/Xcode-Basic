@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var name: String = ""
+    @State var email: String = ""
     @State var password: String = ""
+    let studentList = ["Harry", "Sally", "John"]
+    @State var selectedStudent = "Sally"
+    @State var selectedBirthday = Date.now
     
     var body: some View {
 
@@ -31,7 +34,7 @@ struct ContentView: View {
             //get some info from a user
             HStack{
                 Text("e-mail").frame(width: 100)
-                TextField("email", text:$name, prompt: Text("Required"))
+                TextField("email", text:$email, prompt: Text("Required"))
                 
             }
             HStack{
@@ -41,9 +44,17 @@ struct ContentView: View {
                 }
             }
             
-            Text("your e-mail is \(name)")
+            Text("your e-mail is \(email)")
             
-            
+            //Picker of a list from the student list
+            Picker("Select your student",selection: $selectedStudent){
+                ForEach(studentList, id:\.self){
+                    Text($0)
+                }
+            }
+            //Datepicker to select birthday
+            DatePicker("Birthday", selection: $selectedBirthday, in:...Date.now, displayedComponents: .date)
+            Text("Birth day is \(selectedBirthday.formatted(date: .abbreviated, time: .shortened))")
         }
       
         
