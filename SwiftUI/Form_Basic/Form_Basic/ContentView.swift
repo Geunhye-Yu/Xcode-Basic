@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var email: String = ""
     @State var password: String = ""
+    @State var income: Double = 0.0
     let studentList = ["Harry", "Sally", "John"]
     @State var selectedStudent = "Sally"
     @State var selectedBirthday = Date.now
@@ -44,8 +45,10 @@ struct ContentView: View {
                 }
             }
             
-            Text("your e-mail is \(email)")
-            
+            HStack{
+                Text("Income").frame(width: 100)
+                TextField("Income", value: $income, format:.currency(code: Locale.current.currency?.identifier ?? "USD"), prompt: Text("2000.30")).keyboardType(.decimalPad)
+            }
             //Picker of a list from the student list
             Picker("Select your student",selection: $selectedStudent){
                 ForEach(studentList, id:\.self){
