@@ -11,22 +11,24 @@ import Combine
 struct ContentView: View {
     @State var name = ""
     @State private var nameComponents = PersonNameComponents()
-    @State var checkAmount = "0.0"
+    @State var checkAmount = ""
     @State var numberOfPeople = 1
     @State var tipPercentage = 20
     let tipPercentages = [0, 5, 10, 15, 20, 25, 30]
 
     //Calculating amount of money per person
-    var totalPerPerson: Double{
+    var totalPerPerson: String{
         //because of picker,
         let check = (checkAmount as NSString).doubleValue
         let peopleCount = Double(numberOfPeople + 1)
         let tipPercent = Double(tipPercentage)
         let grandTotal = check + (check * tipPercent / 100)
         let amountPerPerson = grandTotal/peopleCount
+
         
-        return amountPerPerson
+        return String(format: "%.2f", Double(amountPerPerson))
     }
+    
     
     struct MyTextFieldStyle: TextFieldStyle {
         func _body(configuration: TextField<Self._Label>) -> some View {
@@ -51,7 +53,7 @@ struct ContentView: View {
                 }
                 
                 Section{
-                    TextField("Total number of people", text: $checkAmount)
+                    TextField("Total money on the check", text: $checkAmount)
                         .multilineTextAlignment(.center)
                         .keyboardType(.decimalPad)
                         .onReceive(Just(checkAmount)) { newValue in
@@ -68,7 +70,8 @@ struct ContentView: View {
                         ForEach(1..<100){
                             Text("\($0) people")
                         }
-                    }.pickerStyle(WheelPickerStyle())
+                    }
+                    //.pickerStyle(WheelPickerStyle())
                 }header: {
                     Text("number of people")
                 }
@@ -84,19 +87,25 @@ struct ContentView: View {
                     Text("Tip Percent")
                 }
                 
-                HStack{
-                    Spacer()
-                    Button{} label: {
-                        Text("Split")
-                    }.buttonStyle(.borderedProminent)
-                    Spacer()
-                }
-                
                 Section{
                    Text("\(totalPerPerson)").frame(maxWidth: .infinity, alignment: .center)
                 }header: {
                     Text("Amount per Person")
                 }
+               
+            
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        checkAmount = ""
+                        numberOfPeople = 1
+                        tipPercentage = 20
+                    }, label: {
+                        Text("Clear")
+                    }).buttonStyle(.borderedProminent)
+                    Spacer()
+                }
+                
             }.textFieldStyle(MyTextFieldStyle())
         
             
