@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7A60829299682CF009BB820 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A60827299682CF009BB820 /* DetailViewController.swift */; };
+		E7A6082A299682CF009BB820 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7A60828299682CF009BB820 /* DetailViewController.xib */; };
 		E7D17CFC2993DBB8000C248B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D17CFB2993DBB8000C248B /* AppDelegate.swift */; };
 		E7D17CFE2993DBB8000C248B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D17CFD2993DBB8000C248B /* SceneDelegate.swift */; };
 		E7D17D002993DBB8000C248B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D17CFF2993DBB8000C248B /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E7A60827299682CF009BB820 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E7A60828299682CF009BB820 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		E7D17CF82993DBB8000C248B /* Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D17CFB2993DBB8000C248B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7D17CFD2993DBB8000C248B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		E7D17CFA2993DBB8000C248B /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
+				E7A60827299682CF009BB820 /* DetailViewController.swift */,
+				E7A60828299682CF009BB820 /* DetailViewController.xib */,
 				E7D17CFB2993DBB8000C248B /* AppDelegate.swift */,
 				E7D17CFD2993DBB8000C248B /* SceneDelegate.swift */,
 				E7D17CFF2993DBB8000C248B /* ViewController.swift */,
@@ -172,6 +178,7 @@
 				E7D17D1A2993DBE6000C248B /* nssl0049.jpg in Resources */,
 				E7D17D1F2993DBE6000C248B /* nssl0041.jpg in Resources */,
 				E7D17D202993DBE6000C248B /* nssl0042.jpg in Resources */,
+				E7A6082A299682CF009BB820 /* DetailViewController.xib in Resources */,
 				E7D17D082993DBBA000C248B /* LaunchScreen.storyboard in Resources */,
 				E7D17D052993DBBA000C248B /* Assets.xcassets in Resources */,
 				E7D17D1D2993DBE6000C248B /* nssl0045.jpg in Resources */,
@@ -189,6 +196,7 @@
 				E7D17D002993DBB8000C248B /* ViewController.swift in Sources */,
 				E7D17CFC2993DBB8000C248B /* AppDelegate.swift in Sources */,
 				E7D17CFE2993DBB8000C248B /* SceneDelegate.swift in Sources */,
+				E7A60829299682CF009BB820 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
