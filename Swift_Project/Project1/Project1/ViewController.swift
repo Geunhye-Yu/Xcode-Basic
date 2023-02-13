@@ -17,6 +17,7 @@ class ViewController: UITableViewController {
         title = "Strom Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -26,6 +27,8 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
+        pictures = pictures.sorted()
+
         print(pictures)
     }
     
@@ -36,6 +39,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = pictures[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 15.0)
         return cell
     }
 
@@ -45,6 +49,8 @@ class ViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController{
             //2. success! Set its selectedImage property
             vc.selectedImage = pictures[indexPath.row]
+            vc.selectedImageNum = indexPath.row
+            vc.totalPictureNum = pictures.count
             //3. now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
