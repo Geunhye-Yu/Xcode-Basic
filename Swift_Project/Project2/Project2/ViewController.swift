@@ -28,12 +28,20 @@ class ViewController: UIViewController {
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
+        
+        //bar button to show the scores
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showScore))
         // Do any additional setup after loading the view.
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
         askQuestion()
         
-        
+    }
+    
+    @objc func showScore(){
+        let av = UIActivityViewController(activityItems: [score], applicationActivities: [])
+        av.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
+        present(av, animated: true)
     }
     
     func askQuestion(action: UIAlertAction! = nil){
