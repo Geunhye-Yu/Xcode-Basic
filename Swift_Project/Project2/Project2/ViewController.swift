@@ -30,7 +30,8 @@ class ViewController: UIViewController {
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
         //bar button to show the scores
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showScore))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showScore))
+
         // Do any additional setup after loading the view.
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
@@ -39,8 +40,9 @@ class ViewController: UIViewController {
     }
     
     @objc func showScore(){
-        let av = UIActivityViewController(activityItems: [score], applicationActivities: [])
-        av.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
+        var shareText = "My Game Score is \(score)!"
+        let av = UIActivityViewController(activityItems: [shareText], applicationActivities: [])
+        av.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(av, animated: true)
     }
     
