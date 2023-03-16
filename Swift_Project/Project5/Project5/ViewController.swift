@@ -28,11 +28,12 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(startGame))
 
         startGame()
     }
     
-    func startGame(){
+    @objc func startGame(){
         
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
@@ -65,38 +66,33 @@ class ViewController: UITableViewController {
     func submit(_ answer:String){
         var lowerAnswer = answer.lowercased()
         
-        var errorTitle: String
-        var errorMessage: String
-        
         if isPossible(word: lowerAnswer) {
             if isOriginal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
-                    usedWords.insert(answer, at: 0)
-                    
-                    //add and show the answer at the tableview
-                    //this is because calling reloadData() follows a lot of work
-                    //the latest answer should be located on the top
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                    
-                    return
+                    if isEasy(word: lowerAnswer){
+                        usedWords.insert(answer, at: 0)
+                        
+                        //add and show the answer at the tableview
+                        //this is because calling reloadData() follows a lot of work
+                        //the latest answer should be located on the top
+                        let indexPath = IndexPath(row: 0, section: 0)
+                        tableView.insertRows(at: [indexPath], with: .automatic)
+                        
+                        return
+                    } else {
+                        showErrorMessage(title: "Word is too easy", message: "The word has to be over 3 letters and not the same as the given word")
+                    }
                 } else{
-                    errorTitle = "Word not recognised"
-                    errorMessage = "The word is not a real one"
+                    showErrorMessage(title: "Word not recognised", message: "The word is not a real one")
                 }
             } else{
-                errorTitle = "Word used already"
-                errorMessage = "Please use the one you never used"
+                showErrorMessage(title: "Word used already", message: "Please use the one you never used")
             }
         } else{
             guard let title = title?.lowercased() else {return}
-            errorTitle = "Word not possible"
-            errorMessage = "You can't spell that word from \(title)"
+            showErrorMessage(title: "Word not possible", message: "You can't spell that word from \(title)")
         }
         
-        var ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
         
     }
     
@@ -129,6 +125,24 @@ class ViewController: UITableViewController {
         
         //location tell where missspelling started but here only needs the spelling is correct
         return missspelledRange.location == NSNotFound
+    }
+    
+    func isEasy(word:String) -> Bool{
+        if word.utf16.count <= 3{
+            return false
+        }
+        
+        if word == title?.lowercased(){
+            return false
+        }
+        
+        return true
+    }
+    
+    func showErrorMessage(title : String, message: String){
+        var ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
 
 }
