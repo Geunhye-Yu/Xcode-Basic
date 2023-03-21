@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project6a" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1O-q6-7yG">
-                                <rect key="frame" x="84.666666666666686" y="390" width="224" height="114"/>
+                                <rect key="frame" x="84.666666666666686" y="390" width="224" height="130"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMp-8s-M9c">
-                                <rect key="frame" x="84.666666666666686" y="528" width="224" height="114"/>
+                                <rect key="frame" x="84.666666666666686" y="544" width="224" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -45,13 +45,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oMp-8s-M9c" secondAttribute="bottom" constant="176" id="5dF-jB-BkJ"/>
                             <constraint firstItem="m1O-q6-7yG" firstAttribute="top" secondItem="oWE-ee-1vS" secondAttribute="bottom" constant="27" id="O2c-iK-7gq"/>
                             <constraint firstItem="oMp-8s-M9c" firstAttribute="top" secondItem="m1O-q6-7yG" secondAttribute="bottom" constant="24" id="PCh-vt-e9I"/>
                             <constraint firstItem="m1O-q6-7yG" firstAttribute="centerX" secondItem="oWE-ee-1vS" secondAttribute="centerX" id="U6b-Pf-JnJ"/>
+                            <constraint firstItem="oWE-ee-1vS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="56:213" id="VBh-VM-6rZ"/>
                             <constraint firstItem="oWE-ee-1vS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XJf-uf-QvE"/>
+                            <constraint firstItem="oMp-8s-M9c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="56:213" id="Ztf-Rc-xft"/>
+                            <constraint firstItem="oMp-8s-M9c" firstAttribute="height" secondItem="m1O-q6-7yG" secondAttribute="height" multiplier="0.876923" id="h9h-cb-hns"/>
                             <constraint firstItem="oMp-8s-M9c" firstAttribute="centerX" secondItem="m1O-q6-7yG" secondAttribute="centerX" id="p4N-s2-k1X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oMp-8s-M9c" secondAttribute="bottom" constant="20" id="q2f-ti-2X1"/>
+                            <constraint firstItem="m1O-q6-7yG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="56:213" id="sqP-eS-tMa"/>
                             <constraint firstItem="oWE-ee-1vS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="146" id="tqk-PH-gA3"/>
+                            <constraint firstItem="m1O-q6-7yG" firstAttribute="height" secondItem="oWE-ee-1vS" secondAttribute="height" multiplier="1.14" id="wBv-Nk-ZUQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vRQ-Ep-NP8"/>
