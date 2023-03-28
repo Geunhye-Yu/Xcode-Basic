@@ -57,7 +57,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
-    @objc func openTapped(){
+    @objc func openTapfped(){
         let ac = UIAlertController(title: "Open pages..", message: nil, preferredStyle: .actionSheet)
         for website in websites {
             ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
